@@ -2,6 +2,7 @@
  Immerza meditation project like Headspace XR app
 
 <b>Loving kindness meditation / AR</b>
+
 See e.g. https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2015.01693/full 
 
 https://www.iawaketechnologies.com/how-to-develop-compassion-the-5-stages-of-loving-kindness-meditation/ 
