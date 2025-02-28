@@ -62,7 +62,7 @@ Material:
     - _FoamScale: 2.94
     - _FoamSpeed: 0.03
     - _HorizonDistance: 25.1
-    - _LightingHardness: 0.1
+    - _LightingHardness: 0.165
     - _LightingSmoothness: 0.9
     - _NormalScale: 0.37
     - _NormalSpeed: 0.05
@@ -74,8 +74,8 @@ Material:
     - _RefractionStrength: 0.004
     m_Colors:
     - _DeepWaterColor: {r: 0.11485404, g: 0.17087674, b: 0.2735849, a: 1}
-    - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
-    - _HorizonColor: {r: 0.9960787, g: 1, b: 0.8820755, a: 1}
+    - _FoamColor: {r: 0, g: 0, b: 0, a: 1}
+    - _HorizonColor: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 1}
     - _ShallowWaterColor: {r: 0.21226418, g: 0.7694231, b: 1, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
