@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Globalization;
 using System.Collections;
 using Newtonsoft.Json;
 using System;
@@ -11,30 +10,9 @@ public class ElevenLabs : MonoBehaviour
     [SerializeField] private string _key;
     [SerializeField] private string _apiUrl = "https://api.elevenlabs.io";
     [SerializeField] private string VoiceID;
-    [SerializeField] [Range(0, 4)] int LatencyOptimization;
-    [SerializeField] private AudioSource meditationGuide;
+    [SerializeField] [Range(0, 4)] int LatencyOptimization;    
 
-    string text = "Sitting quietly, imagine a gentle golden-white light flowing down over your head and through your body. As this golden-white light travels through every cell of your body, let go of tension and float in this sea of relaxation.";
-    void Start()
-    {
-        DetectLanguage();
-
-        StartCoroutine(GenerateAudioFromText(text));
-    }
-
-    void DetectLanguage()
-    {
-        // Get the system language
-        SystemLanguage systemLanguage = Application.systemLanguage;
-
-        // Convert to a more readable format
-        string languageName = CultureInfo.CurrentCulture.EnglishName;
-
-        Debug.Log("Detected VR Headset Language: " + systemLanguage.ToString());
-        Debug.Log("Detected Culture Info Language: " + languageName);
-    }
-
-    IEnumerator GenerateAudioFromText(string message)
+    public IEnumerator GenerateAudioFromText(string message, Action<AudioClip> callback)
     {        
         var postData = new TextToSpeechRequest { text = message };
         var json = JsonConvert.SerializeObject(postData);
@@ -54,6 +32,7 @@ public class ElevenLabs : MonoBehaviour
             if (request.result != UnityWebRequest.Result.Success)
             {
                 Debug.LogError($"Error downloading audio stream from:{url} : {request.error}");
+                callback?.Invoke(null);
             }
             else
             {
@@ -64,8 +43,8 @@ public class ElevenLabs : MonoBehaviour
                     Debug.Log("Couldn't process audio stream.");
                     yield break;
                 }
-                meditationGuide.clip = audioClip;
-                meditationGuide.Play();                
+
+                callback?.Invoke(audioClip);               
             }
 
             request.disposeUploadHandlerOnDispose = true;
