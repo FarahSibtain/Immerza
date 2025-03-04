@@ -18,8 +18,24 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 9441320960
+  - m_Id: 19436347392
     m_Localized: Selbst
+    m_Metadata:
+      m_Items: []
+  - m_Id: 242451685376
+    m_Localized: Guter Freund
+    m_Metadata:
+      m_Items: []
+  - m_Id: 907227897856
+    m_Localized: Neutrale Person
+    m_Metadata:
+      m_Items: []
+  - m_Id: 926857240576
+    m_Localized: Schwieriger Mensch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 943517016064
+    m_Localized: "Alle f\xFChlenden Wesen"
     m_Metadata:
       m_Items: []
   references:

@@ -15,34 +15,18 @@ MonoBehaviour:
   m_TableCollectionName: Stages
   m_TableCollectionNameGuidString: 6959788e852d2244984c3dd842e087ca
   m_Entries:
-  - m_Id: 19436347392
-    m_Key: Window1
-    m_Metadata:
-      m_Items: []
-  - m_Id: 242451685376
-    m_Key: Window2
-    m_Metadata:
-      m_Items: []
-  - m_Id: 907227897856
-    m_Key: Window3
-    m_Metadata:
-      m_Items: []
-  - m_Id: 926857240576
-    m_Key: Window4
-    m_Metadata:
-      m_Items: []
-  - m_Id: 943517016064
-    m_Key: Window5
+  - m_Id: 9441320960
+    m_Key: Stage1
     m_Metadata:
       m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 4836393313348091928
+    rid: 4836393288774713344
   references:
     version: 2
     RefIds:
-    - rid: 4836393313348091928
+    - rid: 4836393288774713344
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
-        m_CustomEpoch: 1741095892141
+        m_CustomEpoch: 1741002080031

@@ -10,32 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: Stages_en
+  m_Name: Stages_de
   m_EditorClassIdentifier: 
   m_LocaleId:
-    m_Code: en
+    m_Code: de
   m_SharedData: {fileID: 11400000, guid: 6959788e852d2244984c3dd842e087ca, type: 2}
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 19436347392
-    m_Localized: Youself
-    m_Metadata:
-      m_Items: []
-  - m_Id: 242451685376
-    m_Localized: "Good Friend\r"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 907227897856
-    m_Localized: Neutral Person
-    m_Metadata:
-      m_Items: []
-  - m_Id: 926857240576
-    m_Localized: Difficult Person
-    m_Metadata:
-      m_Items: []
-  - m_Id: 943517016064
-    m_Localized: All Sentient Beings
+  - m_Id: 9441320960
+    m_Localized: Selbst
     m_Metadata:
       m_Items: []
   references:
