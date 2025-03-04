@@ -10,10 +10,10 @@ public class ElevenLabs : MonoBehaviour
     [SerializeField] private string _key;
     [SerializeField] private string _apiUrl = "https://api.elevenlabs.io";
     [SerializeField] private string VoiceID;
-    [SerializeField] [Range(0, 4)] int LatencyOptimization;    
+    [SerializeField] [Range(0, 4)] int LatencyOptimization;
 
     public IEnumerator GenerateAudioFromText(string message, Action<AudioClip> callback)
-    {        
+    {
         var postData = new TextToSpeechRequest { text = message };
         var json = JsonConvert.SerializeObject(postData);
         var url = $"{_apiUrl}/v1/text-to-speech/{VoiceID}?optimize_streaming_latency={LatencyOptimization}";
@@ -23,7 +23,7 @@ public class ElevenLabs : MonoBehaviour
             request.uploadHandler = uH;
             DownloadHandlerAudioClip downloadHandler = new DownloadHandlerAudioClip(url, AudioType.MPEG);
             downloadHandler.streamAudio = true;
-            request.downloadHandler = downloadHandler;            
+            request.downloadHandler = downloadHandler;
             request.SetRequestHeader("xi-api-key", _key);
             request.SetRequestHeader("Accept", "audio/mpeg");
             //Debug.Log("Sending text message: " + message);
@@ -44,16 +44,15 @@ public class ElevenLabs : MonoBehaviour
                     yield break;
                 }
 
-                callback?.Invoke(audioClip);               
+                callback?.Invoke(audioClip);
             }
 
             request.disposeUploadHandlerOnDispose = true;
             request.disposeDownloadHandlerOnDispose = true;
-            
+
             request.Dispose();
         }
     }
-
 
     [Serializable]
     public class TextToSpeechRequest

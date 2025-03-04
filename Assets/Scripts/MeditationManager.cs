@@ -1,28 +1,70 @@
-using System.Globalization;
+using System;
+using System.Collections;
 using UnityEngine;
-
+using UnityEngine.Localization.Settings;
 public class MeditationManager : MonoBehaviour
 {
     [SerializeField] ElevenLabs elevenLabs;
     [SerializeField] private AudioSource meditationGuideAudioSrc;
     [SerializeField] AudioClip meditationGuideClip;
+    [SerializeReference] LanguagesSO languagesSO;
 
     public static SystemLanguage systemLanguage;
-
-    string text = "Sitting quietly, imagine a gentle golden-white light flowing down over your head and through your body. As this golden-white light travels through every cell of your body, let go of tension and float in this sea of relaxation.";
-
+    int localeID = -1;
+    
     private void Start()
     {
-        DetectLanguage();
+        DetectAndSetLanguage();
         DetectDeviceModel();
 
+        StartMeditation();       
+    }
+
+    private void StartMeditation()
+    {
+        string text = GetTextFromDictionary("Introduction");
         StartCoroutine(elevenLabs.GenerateAudioFromText(text, OnAudioLoaded));
     }
-    void DetectLanguage()
+
+    string GetTextFromDictionary(string key)
+    {
+        string text = null;
+        switch(localeID)
+        {
+            case 0: //English
+                text = languagesSO.GetValue(key).Item1;
+                break;
+
+            case 1: //German
+                text = languagesSO.GetValue(key).Item2;
+                break;
+        }
+        return text;
+    }
+
+    void DetectAndSetLanguage()
     {
         // Get the system language
         SystemLanguage systemLanguage = Application.systemLanguage;        
-        Debug.Log("Detected VR Headset Language: " + systemLanguage.ToString());        
+        Debug.Log("Detected VR Headset Language: " + systemLanguage.ToString());
+        
+        switch(systemLanguage.ToString().ToLower())
+        {
+            case "english":
+                localeID = 0;                
+                break;
+
+            case "german":
+                localeID = 1;                
+                break;
+        }
+        SetLocale(localeID);
+    }
+
+    IEnumerator SetLocale(int locateID)
+    {
+        yield return LocalizationSettings.InitializationOperation;
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[locateID];
     }
 
     void DetectDeviceModel()
@@ -46,7 +88,7 @@ public class MeditationManager : MonoBehaviour
         {
             Debug.Log("Audio loaded successfully!");
             meditationGuideAudioSrc.clip = clip;
-            //meditationGuideAudioSrc.Play();
+            meditationGuideAudioSrc.Play();
         }
         else
         {

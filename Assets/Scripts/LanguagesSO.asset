@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9007a02d71327ba4ea0a76546ecf38c4, type: 3}
+  m_Name: LanguagesSO
+  m_EditorClassIdentifier: 
+  keys:
+  - Introduction
+  - Quest2
+  - Quest3
+  - Start
+  English:
+  - Sitting quietly, imagine a gentle golden-white light flowing down over your head
+    and through your body. As this golden-white light travels through every cell
+    of your body, let go of tension and float in this sea of relaxation.
+  - At your own time, gently gesture at the person to whom you want to send your
+    loving kindness.
+  - At your own time, gently gaze at the person to whom you want to send your loving
+    kindness.
+  - Send energy as long as you want before continuing with the next person or the
+    lotus flower to end this meditation.
+  German:
+  - "Sitzen Sie ruhig und stellen Sie sich vor, wie ein sanftes goldwei\xDFes Licht
+    \xFCber Ihren Kopf und durch Ihren K\xF6rper flie\xDFt. W\xE4hrend dieses goldwei\xDFe
+    Licht jede Zelle Ihres K\xF6rpers durchdringt, lassen Sie Anspannung los und
+    schweben Sie in diesem Meer der Entspannung."
+  - "Gestikulieren Sie in Ihrem eigenen Tempo sanft auf die Person, der Sie Ihre
+    liebevolle G\xFCte \xFCbermitteln m\xF6chten."
+  - "Schauen Sie in Ihrem eigenen Tempo sanft auf die Person, der Sie Ihre Liebe
+    schenken m\xF6chten."
+  - "Senden Sie so lange Energie, wie Sie m\xF6chten, bevor Sie mit der n\xE4chsten
+    Person oder der Lotusblume fortfahren, um diese Meditation zu beenden."

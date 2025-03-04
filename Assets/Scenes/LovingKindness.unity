@@ -375,12 +375,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e8f3d0c04f8ea4a9673ff66ee89527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _key: sk_3b5a1684cf80e7cc5c99e6615fa87d8fe0dd783a7e9773d5
+  _key: sk_0ecb6e4258b0db3746c051364ae6612b39d57772845a9c70
   _apiUrl: https://api.elevenlabs.io
   VoiceID: XB0fDUnXU5powFXDhCwa
   LatencyOptimization: 4
-  meditationGuideAudioSrc: {fileID: 0}
-  meditationGuideClip: {fileID: 0}
 --- !u!4 &1040421863
 Transform:
   m_ObjectHideFlags: 0

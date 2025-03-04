@@ -2358,9 +2358,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0cb9aa70a22847b5925ee5f067c10a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Camera: {fileID: 1902757408}
+  m_Camera: {fileID: 1558347289}
   m_OriginBaseGameObject: {fileID: 579033275}
-  m_CameraFloorOffsetObject: {fileID: 431852924}
+  m_CameraFloorOffsetObject: {fileID: 1902757403}
   m_RequestedTrackingOriginMode: 0
   m_CameraYOffset: 1.36144
 --- !u!4 &579033279
@@ -2829,7 +2829,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &814798632
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3137,7 +3137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e8f3d0c04f8ea4a9673ff66ee89527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _key: sk_3b5a1684cf80e7cc5c99e6615fa87d8fe0dd783a7e9773d5
+  _key: sk_0ecb6e4258b0db3746c051364ae6612b39d57772845a9c70
   _apiUrl: https://api.elevenlabs.io
   VoiceID: XB0fDUnXU5powFXDhCwa
   LatencyOptimization: 4
@@ -4250,6 +4250,7 @@ MonoBehaviour:
   elevenLabs: {fileID: 1040421862}
   meditationGuideAudioSrc: {fileID: 1237855052}
   meditationGuideClip: {fileID: 8300000, guid: 8f7061f97e1eedc4abd3d423da7a3276, type: 3}
+  languagesSO: {fileID: 11400000, guid: 24065edaec0c62847a9dc4725ef6de01, type: 2}
 --- !u!1 &1274682741
 GameObject:
   m_ObjectHideFlags: 0
@@ -6093,7 +6094,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1558347287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6145,7 +6146,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1558347286}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1558347289
 Camera:
   m_ObjectHideFlags: 0
@@ -8540,6 +8541,10 @@ PrefabInstance:
     - target: {fileID: 997426009828781475, guid: c8f24446e6711df448f29ecd45d6cb67, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 997426009828781475, guid: c8f24446e6711df448f29ecd45d6cb67, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7240117164578589295, guid: c8f24446e6711df448f29ecd45d6cb67, type: 3}
       propertyPath: m_Layer
