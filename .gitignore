@@ -71,3 +71,4 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 /.utmp
+/Assets/Samples/XR Interaction Toolkit/3.0.7/XR Device Simulator

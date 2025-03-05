@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "LanguagesSO", menuName = "ScriptableObjects/LanguagesSO")]
-public class LanguagesSO : ScriptableObject//, ISerializationCallbackReceiver
+public class LanguagesSO : ScriptableObject, ISerializationCallbackReceiver
 {
     [SerializeField] private List<string> keys = new List<string>();
     [SerializeField] private List<string> English = new List<string>(); // First value

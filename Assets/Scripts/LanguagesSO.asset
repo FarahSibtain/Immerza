@@ -14,27 +14,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keys:
   - Introduction
-  - Quest2
-  - Quest3
-  - Start
+  - GetStarted
+  - Yourself
+  - GoodFriend
+  - NeutralPerson
+  - DifficultPerson
+  - AllSentientBeings
+  - Other
   English:
   - Sitting quietly, imagine a gentle golden-white light flowing down over your head
     and through your body. As this golden-white light travels through every cell
     of your body, let go of tension and float in this sea of relaxation.
-  - At your own time, gently gesture at the person to whom you want to send your
-    loving kindness.
   - At your own time, gently gaze at the person to whom you want to send your loving
-    kindness.
-  - Send energy as long as you want before continuing with the next person or the
-    lotus flower to end this meditation.
+    kindness. Send energy as long as you want before continuing with the next person
+    or the lotus flower to end this meditation.
+  - Sending loving kindness to yourself...May I be well...May I be happy...May I
+    be free from suffering...
+  - Sending loving kindness to a good friend
+  - Sending loving kindness to a neutral person
+  - Sending loving kindness to a difficult person
+  - Sending loving kindness to all sentient beings
+  - May you be well...May you be happy...May you be free from suffering...
   German:
   - "Sitzen Sie ruhig und stellen Sie sich vor, wie ein sanftes goldwei\xDFes Licht
     \xFCber Ihren Kopf und durch Ihren K\xF6rper flie\xDFt. W\xE4hrend dieses goldwei\xDFe
     Licht jede Zelle Ihres K\xF6rpers durchdringt, lassen Sie Anspannung los und
     schweben Sie in diesem Meer der Entspannung."
-  - "Gestikulieren Sie in Ihrem eigenen Tempo sanft auf die Person, der Sie Ihre
-    liebevolle G\xFCte \xFCbermitteln m\xF6chten."
   - "Schauen Sie in Ihrem eigenen Tempo sanft auf die Person, der Sie Ihre Liebe
-    schenken m\xF6chten."
-  - "Senden Sie so lange Energie, wie Sie m\xF6chten, bevor Sie mit der n\xE4chsten
-    Person oder der Lotusblume fortfahren, um diese Meditation zu beenden."
+    schenken m\xF6chten. Senden Sie so lange Energie, wie Sie m\xF6chten, bevor Sie
+    mit der n\xE4chsten Person oder der Lotusblume fortfahren, um diese Meditation
+    zu beenden."
+  - "Sende dir selbst liebevolle G\xFCte ... M\xF6ge es mir gut gehen ... M\xF6ge
+    ich gl\xFCcklich sein ... M\xF6ge ich frei von Leiden sein ..."
+  - Einem guten Freund liebevolle Freundlichkeit senden
+  - Liebevolle Freundlichkeit an eine neutrale Person senden
+  - "Einer schwierigen Person liebevolle G\xFCte senden"
+  - "Allen Lebewesen liebevolle G\xFCte senden"
+  - "M\xF6ge es dir gut gehen... M\xF6gest du gl\xFCcklich sein... M\xF6gest du frei
+    von Leiden sein..."

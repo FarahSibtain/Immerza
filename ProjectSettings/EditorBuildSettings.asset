@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_NewEnvironment/Scenes/Scene_02.unity
     guid: c669bc23744899e4cb769e17bad79ee3
+  - enabled: 0
+    path: Assets/Samples/XR Interaction Toolkit/3.0.7/Starter Assets/DemoScene 1.unity
+    guid: abe7d7451cc8a8149b4a1e88e032d478
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 8ec3ca4a4fcee37458b3a900e64c62d2, type: 2}
     com.unity.addressableassets: {fileID: 11400000, guid: a9826b49d4cff6c45bb74f0af23570b9, type: 2}
