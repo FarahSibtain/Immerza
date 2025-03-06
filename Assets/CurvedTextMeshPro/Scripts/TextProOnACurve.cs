@@ -51,6 +51,7 @@ namespace ntw.CurvedTextMeshPro
         private void Awake()
         {
             m_TextComponent = gameObject.GetComponent<TMP_Text>();
+            m_TextComponent.enabled = false;
         }
 
         /// <summary>
@@ -62,10 +63,24 @@ namespace ntw.CurvedTextMeshPro
             m_forceUpdate = true;
         }
 
+        private void Start()
+        {
+            StartCoroutine(UpdateTextField());            
+        }
+
+        IEnumerator UpdateTextField()
+        {
+            //yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(0.5f);
+            m_TextComponent.enabled = true;
+            Update2();
+        }
+
         /// <summary>
         /// Update
         /// </summary>
-        protected void Update()
+        /*protected*/
+        void Update2()
         {
             //if the text and the parameters are the same of the old frame, don't waste time in re-computing everything
             if (!m_forceUpdate && !m_TextComponent.havePropertiesChanged && !ParametersHaveChanged())

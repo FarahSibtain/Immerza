@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 public class MeditationStatesManager : MonoBehaviour
@@ -7,24 +8,28 @@ public class MeditationStatesManager : MonoBehaviour
     [SerializeField] ElevenLabs elevenLabs;
     [SerializeField] private AudioSource meditationGuideAudioSrc;
     [SerializeReference] LanguagesSO languagesSO;
-    Transform selectedWindow;
+    string selectedWindow;
     //[SerializeField] AudioClip meditationGuideClip;
 
     public static SystemLanguage systemLanguage;
-    int localeID = -1;
-
+    int localeID = -1;    
     ESTATE currentState;
     public static Action AllowWindowsInteractible;
     public static Action StopWindowsInteractible;
 
-    private void OnEnable()
+    WaitForSeconds waitFor2Seconds;
+    Dictionary<string, AudioClip> generatedAudios;
+
+    private void SubcribeToWindowEvents()
     {
-        GazeInteractionManager.WindowSelected += WindowSelected;
+        WindowInteractionManager.WindowSelected += WindowSelected;
+        WindowInteractionManager.WindowExited += WindowExited;
     }
 
     private void OnDisable()
     {
-        GazeInteractionManager.WindowSelected -= WindowSelected;
+        WindowInteractionManager.WindowSelected -= WindowSelected;
+        WindowInteractionManager.WindowExited -= WindowExited;
     }
 
     enum ESTATE
@@ -36,6 +41,8 @@ public class MeditationStatesManager : MonoBehaviour
     
     private void Start()
     {
+        waitFor2Seconds = new WaitForSeconds(2);
+        generatedAudios = new Dictionary<string, AudioClip>();
         DetectAndSetLanguage();
         DetectDeviceModel();
 
@@ -62,7 +69,7 @@ public class MeditationStatesManager : MonoBehaviour
                 break;
 
             case ESTATE.MEDITATE:
-                StartCoroutine(ProcessMeditateState());
+                ProcessMeditateState();
                 break;
         }
     }    
@@ -82,7 +89,7 @@ public class MeditationStatesManager : MonoBehaviour
         yield return new WaitUntil(() => isAudioLoaded && !meditationGuideAudioSrc.isPlaying);
 
         //Wait for 2 seconds before going to the next stage
-        yield return new WaitForSeconds(2);
+        yield return waitFor2Seconds;
 
         ChangeState(ESTATE.GETSTARTED);
     }
@@ -91,47 +98,155 @@ public class MeditationStatesManager : MonoBehaviour
     {
         string text = GetTextFromDictionary("GetStarted");
         Debug.Log("text: " + text);
-        StartCoroutine(elevenLabs.GenerateAudioFromText(text, OnAudioLoaded));
+        bool isAudioLoaded = false;
+        StartCoroutine(elevenLabs.GenerateAudioFromText(text, (clip) =>
+        {
+            OnAudioLoaded(clip);
+            isAudioLoaded = true;
+        }));
 
         //Wait for 2 seconds for the audio to begin
-        yield return new WaitForSeconds(2);
-
+        yield return waitFor2Seconds;
         AllowWindowsInteractible?.Invoke();
+
+        yield return new WaitUntil(() => isAudioLoaded && !meditationGuideAudioSrc.isPlaying);
+
+        //Wait for 2 seconds before going to the next stage
+        yield return waitFor2Seconds;
+
+        ChangeState(ESTATE.MEDITATE);
     }
 
-    private IEnumerator ProcessMeditateState()
+    private void ProcessMeditateState()
     {
-        StopWindowsInteractible?.Invoke();
+        SubcribeToWindowEvents();
+        ProcessMeditation();
+    }
 
-        //switch(selectedWindow.parent.name)
-        //{
-        //    case "Yourself":
-        //        ProcessYourselfStage();
-        //        break;
-        //    case "GoodFriend":
-        //        break;
-        //    case "NeutralPerson":
-        //        break;
-        //    case "DifficultPerson":
-        //        break;
-        //    case "AllSentientBeings":
-        //        ProcessYourselfStage();
-        //        break;
-        //}
-        yield return null;
+    private void ProcessMeditation()
+    {
+        meditationGuideAudioSrc.mute = false;
+
+        switch (selectedWindow)
+        {
+            case "Yourself":
+                ProcessYourselfStage();
+                break;
+            case "GoodFriend":
+                ProcessFriendStage();
+                break;
+            case "NeutralPerson":
+                ProcessNeutralStage();
+                break;
+            case "DifficultPerson":
+                ProcessDifficultStage();
+                break;
+            case "AllSentientBeings":
+                ProcessSentientStage();
+                break;
+        }
+    }
+
+    private void ProcessSentientStage()
+    {
+        string text1 = GetTextFromDictionary("AllSentientBeings");
+        string text2 = GetTextFromDictionary("Other");
+        string fullText = text1 + text2;
+        Debug.Log("text: " + fullText);
+        StartCoroutine(ProcessSentences(fullText));
+    }
+
+    private void ProcessDifficultStage()
+    {
+        string text1 = GetTextFromDictionary("DifficultPerson");
+        string text2 = GetTextFromDictionary("Other");
+        string fullText = text1 + text2;
+        Debug.Log("text: " + fullText);
+        StartCoroutine(ProcessSentences(fullText));
+    }
+
+    private void ProcessNeutralStage()
+    {
+        string text1 = GetTextFromDictionary("NeutralPerson");
+        string text2 = GetTextFromDictionary("Other");
+        string fullText = text1 + text2;
+        Debug.Log("text: " + fullText);
+        StartCoroutine(ProcessSentences(fullText));
+    }
+
+    private void ProcessFriendStage()
+    {
+        string text1 = GetTextFromDictionary("GoodFriend");
+        string text2 = GetTextFromDictionary("Other");
+        string fullText = text1 + text2;
+        Debug.Log("text: " + fullText);
+        StartCoroutine(ProcessSentences(fullText));
     }
 
     private void ProcessYourselfStage()
     {
-        string text = GetTextFromDictionary("Yourself");
-        Debug.Log("text: " + text);
-        StartCoroutine(elevenLabs.GenerateAudioFromText(text, OnAudioLoaded));
-
-        //play the meditation audio in loop
-        meditationGuideAudioSrc.loop = true;
+        string fullText = GetTextFromDictionary("Yourself");
+        Debug.Log("text: " + fullText);
+        StartCoroutine(ProcessSentences(fullText));        
 
         //Activate the loving-kindness energy art flowing towards the windows
         //TODO
+    }
+
+    private IEnumerator ProcessSentences(string fullText)
+    {
+        string[] sentences = fullText.Split(new char[] { '.', '!', '?' }); // Split sentences
+        List<AudioClip> audioClips = new List<AudioClip>();
+
+        foreach (string sentence in sentences)
+        {
+            if (string.IsNullOrWhiteSpace(sentence)) continue; // Skip empty parts
+            
+            string trimmedSentence = sentence.Trim() + "."; // Ensure punctuation
+            AudioClip clip;
+            if (generatedAudios.TryGetValue(trimmedSentence, out clip))
+            {
+                audioClips.Add(clip);
+            }
+            else
+            {
+                Debug.Log("Generating audio for: " + trimmedSentence);
+                // Generate audio from ElevenLabs
+                yield return StartCoroutine(elevenLabs.GenerateAudioFromText(trimmedSentence, (AudioClip clip) =>
+                {
+                    if (clip != null) audioClips.Add(clip);
+                    generatedAudios[trimmedSentence] = clip;
+                }));
+            }                        
+        }
+
+        // Play all audio clips in sequence
+        StartCoroutine(PlayAudioSequentially(audioClips));
+    }
+
+    private IEnumerator PlayAudioSequentially(List<AudioClip> clips)
+    {
+        //Play the clips in a loop
+        int index = 0;
+        while(true)
+        {
+            //If user breaks the gaze with the window then stop meditation audio
+            if (string.IsNullOrEmpty(selectedWindow))
+            {
+                StopMeditationAudio();
+                break;
+            }
+            else
+            {
+                meditationGuideAudioSrc.clip = clips[index];
+                meditationGuideAudioSrc.Play();
+                yield return new WaitForSeconds(clips[index].length + 1f); // Wait for clip + pause
+                index++;
+
+                if (index >= clips.Count)
+                    index = 0;
+            }            
+        }
     }
 
     string GetTextFromDictionary(string key)
@@ -206,9 +321,19 @@ public class MeditationStatesManager : MonoBehaviour
         }
     }
 
-    private void WindowSelected(Transform window)
+    private void WindowSelected(string window)
     {
         selectedWindow = window;
-        ChangeState(ESTATE.MEDITATE);        
+        ProcessMeditation();
+    }
+    private void WindowExited()
+    {
+        selectedWindow = string.Empty;        
+    }
+
+    private void StopMeditationAudio()
+    {
+        meditationGuideAudioSrc.mute = true;
+        meditationGuideAudioSrc.clip = null;
     }
 }

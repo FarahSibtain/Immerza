@@ -19,23 +19,23 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 19436347392
-    m_Localized: Youself
+    m_Localized: YOURSELF
     m_Metadata:
       m_Items: []
   - m_Id: 242451685376
-    m_Localized: "Good Friend\r"
+    m_Localized: "FRIEND\r"
     m_Metadata:
       m_Items: []
   - m_Id: 907227897856
-    m_Localized: Neutral Person
+    m_Localized: NEUTRAL
     m_Metadata:
       m_Items: []
   - m_Id: 926857240576
-    m_Localized: Difficult Person
+    m_Localized: DIFFICULT
     m_Metadata:
       m_Items: []
   - m_Id: 943517016064
-    m_Localized: All Sentient Beings
+    m_Localized: ALL
     m_Metadata:
       m_Items: []
   references:
