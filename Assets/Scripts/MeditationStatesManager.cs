@@ -47,6 +47,9 @@ public class MeditationStatesManager : MonoBehaviour
         DetectDeviceModel();
 
         ChangeState(ESTATE.INTRODUCTORY);
+
+        //For Test only
+        //AllowWindowsInteractible?.Invoke();
     }
 
     private void ChangeState(ESTATE newState)
@@ -58,7 +61,7 @@ public class MeditationStatesManager : MonoBehaviour
 
     private void ProcessState()
     {
-        switch(currentState)
+        switch (currentState)
         {
             case ESTATE.INTRODUCTORY:
                 StartCoroutine(ProcessIntroductoryState());
@@ -193,6 +196,7 @@ public class MeditationStatesManager : MonoBehaviour
         //TODO
     }
 
+    Coroutine PlayMeditationAudio = null;
     private IEnumerator ProcessSentences(string fullText)
     {
         string[] sentences = fullText.Split(new char[] { '.', '!', '?' }); // Split sentences
@@ -221,7 +225,10 @@ public class MeditationStatesManager : MonoBehaviour
         }
 
         // Play all audio clips in sequence
-        StartCoroutine(PlayAudioSequentially(audioClips));
+        if (!string.IsNullOrEmpty(selectedWindow))
+        {
+            PlayMeditationAudio = StartCoroutine(PlayAudioSequentially(audioClips));
+        }        
     }
 
     private IEnumerator PlayAudioSequentially(List<AudioClip> clips)
@@ -234,17 +241,22 @@ public class MeditationStatesManager : MonoBehaviour
             if (string.IsNullOrEmpty(selectedWindow))
             {
                 StopMeditationAudio();
+                clips = new List<AudioClip>();
                 break;
             }
             else
             {
-                meditationGuideAudioSrc.clip = clips[index];
-                meditationGuideAudioSrc.Play();
-                yield return new WaitForSeconds(clips[index].length + 1f); // Wait for clip + pause
-                index++;
+                if (clips.Count > 0)
+                {
+                    meditationGuideAudioSrc.clip = clips[index];
+                    meditationGuideAudioSrc.Play();
+                    yield return new WaitForSeconds(clips[index].length + 1f); // Wait for clip + pause
+                    index++;
 
-                if (index >= clips.Count)
-                    index = 0;
+                    if (index >= clips.Count)
+                        index = 0;
+                }
+                
             }            
         }
     }
@@ -328,7 +340,8 @@ public class MeditationStatesManager : MonoBehaviour
     }
     private void WindowExited()
     {
-        selectedWindow = string.Empty;        
+        selectedWindow = string.Empty;
+        StopCoroutine(PlayMeditationAudio);
     }
 
     private void StopMeditationAudio()

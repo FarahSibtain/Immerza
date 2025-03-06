@@ -20,12 +20,17 @@ public class WindowInteractionManager : MonoBehaviour
     public static Action<string> WindowSelected;
     public static Action WindowExited;
 
+    //[SerializeField] Animator glowFrame;
+    //[SerializeField] Animator defaultFrame;
+
     private void OnEnable()
     {
         MeditationStatesManager.AllowWindowsInteractible += AllowWindowsInteractible;
         progress.SetActive(false);
         interactable = GetComponent<XRSimpleInteractable>();
         interactable.enabled = false;
+        //glowFrame.enabled = false;
+        //defaultFrame.enabled = false;
     }
 
     private void OnDisable()
@@ -48,6 +53,8 @@ public class WindowInteractionManager : MonoBehaviour
         //Start meditation progress 
         progress.SetActive(true);
         WindowSelected?.Invoke(windowName);
+        //glowFrame.enabled = true;
+        //defaultFrame.enabled = false;
     }
 
     public void OnWindowHoverExit(HoverExitEventArgs hoverExitEventArgs)
@@ -60,5 +67,8 @@ public class WindowInteractionManager : MonoBehaviour
         //Stop meditation progress 
         progress.SetActive(false);
         WindowExited?.Invoke();
+
+        //glowFrame.enabled = false;
+        //defaultFrame.enabled = true;
     }
 }
