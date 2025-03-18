@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.actimi.immerzasdk": "https://github.com/Actimi/immerza-sdk-package.git",
     "com.unity.ai.navigation": "2.0.5",
     "com.unity.collab-proxy": "2.6.0",
     "com.unity.ide.rider": "3.0.31",
@@ -9,6 +8,7 @@
     "com.unity.localization": "1.5.4",
     "com.unity.multiplayer.center": "1.0.0",
     "com.unity.render-pipelines.universal": "17.0.3",
+    "com.unity.splines": "2.7.2",
     "com.unity.test-framework": "1.4.5",
     "com.unity.timeline": "1.8.7",
     "com.unity.ugui": "2.0.0",

@@ -14,7 +14,7 @@ public class WindowInteractionManager : MonoBehaviour
     [SerializeField] Material frameOuterSelectMat;
     [SerializeField] Material frameInnerSelectMat;
 
-    [SerializeField] GameObject progress;
+    //[SerializeField] GameObject progress;
 
     XRSimpleInteractable interactable;
     public static Action<string> WindowSelected;
@@ -26,9 +26,9 @@ public class WindowInteractionManager : MonoBehaviour
     private void OnEnable()
     {
         MeditationStatesManager.AllowWindowsInteractible += AllowWindowsInteractible;
-        progress.SetActive(false);
-        interactable = GetComponent<XRSimpleInteractable>();
-        interactable.enabled = false;
+        //progress.SetActive(false);
+        //interactable = GetComponent<XRSimpleInteractable>();
+        //interactable.enabled = false;
         //glowFrame.enabled = false;
         //defaultFrame.enabled = false;
     }
@@ -51,7 +51,7 @@ public class WindowInteractionManager : MonoBehaviour
         frameInner.material = frameInnerSelectMat;
 
         //Start meditation progress 
-        progress.SetActive(true);
+        //progress.SetActive(true);
         WindowSelected?.Invoke(windowName);
         //glowFrame.enabled = true;
         //defaultFrame.enabled = false;
@@ -65,7 +65,7 @@ public class WindowInteractionManager : MonoBehaviour
         frameInner.material = frameInnerDefaultMat;
 
         //Stop meditation progress 
-        progress.SetActive(false);
+        //progress.SetActive(false);
         WindowExited?.Invoke();
 
         //glowFrame.enabled = false;

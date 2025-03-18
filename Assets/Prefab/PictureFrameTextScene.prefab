@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 33976370163973181, guid: 32146114876bb1f46a0666b44be50f77, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 103104701909183695, guid: 32146114876bb1f46a0666b44be50f77, type: 3}
       propertyPath: m_Name
       value: PictureFrameTextScene
@@ -98,7 +102,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: b84484bd573786646b6cbdd251a093d7, type: 2}
     - target: {fileID: 6780351240284914961, guid: 32146114876bb1f46a0666b44be50f77, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6780351240284914961, guid: 32146114876bb1f46a0666b44be50f77, type: 3}
       propertyPath: m_fontSize
@@ -116,6 +120,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Title
       objectReference: {fileID: 0}
+    - target: {fileID: 7626059596697656305, guid: 32146114876bb1f46a0666b44be50f77, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7652199883024194225, guid: 32146114876bb1f46a0666b44be50f77, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.6
@@ -127,6 +135,10 @@ PrefabInstance:
     - target: {fileID: 7652199883024194225, guid: 32146114876bb1f46a0666b44be50f77, type: 3}
       propertyPath: m_LocalScale.z
       value: 2.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123819803523816359, guid: 32146114876bb1f46a0666b44be50f77, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9027041688282572969, guid: 32146114876bb1f46a0666b44be50f77, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -280,8 +292,6 @@ MonoBehaviour:
   frameOuterSelectMat: {fileID: 2100000, guid: a1fdf6db24b92544f832dd5e2f10aa02, type: 2}
   frameInnerSelectMat: {fileID: 2100000, guid: 761fce98d97f4d14493f104b4bf0ef43, type: 2}
   progress: {fileID: 6142027481707112889}
-  glowFrame: {fileID: 3361377189190369020}
-  defaultFrame: {fileID: 8190427002779904626}
 --- !u!65 &8056653288672464052
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -316,7 +326,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3831247928881563005}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 6ec9ceb1435e648428947b06f386e06e, type: 2}
   m_CullingMode: 0
@@ -413,7 +423,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 3766450333167380914}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6188672071941117410}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
   m_Name: 
