@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using XLua.CSObjectWrap;
 
 public class SmileyManager : MonoBehaviour
 {
@@ -15,6 +17,8 @@ public class SmileyManager : MonoBehaviour
     [SerializeField] float duration = 5f;      // Time to reach full intensity
     Material origSmileyMaterial;
     Material origSmileyFrameMaterial;
+    public static Action WindowHoverEnter;
+    public static Action WindowHoverExit;
 
     private float elapsedTime = 0f;
     private Color baseColor;  // Store the base emission color
@@ -77,6 +81,8 @@ public class SmileyManager : MonoBehaviour
 
         Renderer renderer2 = transform.GetChild(0).GetComponent<Renderer>();
         renderer2.material = smileyFrameMaterial;
+
+        WindowHoverEnter?.Invoke();
     }
     public void OnSmileyHoverExit(HoverExitEventArgs hoverExitEventArgs)
     {
@@ -92,6 +98,8 @@ public class SmileyManager : MonoBehaviour
 
         renderer = transform.GetChild(0).GetComponent<Renderer>();
         renderer.material = origSmileyFrameMaterial;
+
+        WindowHoverExit?.Invoke();
     }
     private void OnApplicationQuit()
     {
