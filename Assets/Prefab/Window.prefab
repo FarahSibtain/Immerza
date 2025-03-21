@@ -417,7 +417,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4238070089314035231}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
   m_Name: 
@@ -806,9 +806,9 @@ GameObject:
   - component: {fileID: 2096085195630730275}
   - component: {fileID: 1380421935560108484}
   - component: {fileID: 7951446822278137965}
-  - component: {fileID: 5676091123463122776}
   - component: {fileID: 1228542063625098579}
   - component: {fileID: 1148072448324126149}
+  - component: {fileID: 350215434395272107}
   m_Layer: 6
   m_Name: Picture
   m_TagString: Untagged
@@ -875,30 +875,6 @@ MonoBehaviour:
   m_HoverEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5676091123463122776}
-        m_TargetAssemblyTypeName: WindowInteractionManager, Assembly-CSharp
-        m_MethodName: OnWindowHoverEnter
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1945034296931014937}
-        m_TargetAssemblyTypeName: SmileyManager, Assembly-CSharp
-        m_MethodName: OnSmileyHoverEnter
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 4443364076818123600}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
@@ -913,31 +889,7 @@ MonoBehaviour:
         m_CallState: 2
   m_HoverExited:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5676091123463122776}
-        m_TargetAssemblyTypeName: WindowInteractionManager, Assembly-CSharp
-        m_MethodName: OnWindowHoverExit
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1945034296931014937}
-        m_TargetAssemblyTypeName: SmileyManager, Assembly-CSharp
-        m_MethodName: OnSmileyHoverExit
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_FirstSelectEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -971,24 +923,6 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
---- !u!114 &5676091123463122776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5585536436753255570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11dc5c029bc3aea4aae540e486743abc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  frameOuter: {fileID: 8336094481037939655}
-  frameInner: {fileID: 6172764013470635604}
-  frameOuterDefaultMat: {fileID: 2100000, guid: cf1a3468633e0694081312e20f3f2da7, type: 2}
-  frameInnerDefaultMat: {fileID: 2100000, guid: b84484bd573786646b6cbdd251a093d7, type: 2}
-  frameOuterSelectMat: {fileID: 2100000, guid: a1fdf6db24b92544f832dd5e2f10aa02, type: 2}
-  frameInnerSelectMat: {fileID: 2100000, guid: 761fce98d97f4d14493f104b4bf0ef43, type: 2}
 --- !u!65 &1228542063625098579
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1032,6 +966,31 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &350215434395272107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5585536436753255570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2079d26ed1b136d429eb101f9a2ef439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainLuaScript: {fileID: -2594540960814217046, guid: 802ec18e43be47c4984b8199fa28ba4a, type: 3}
+  additionalLuaScripts: []
+  references:
+  - variableName: frameOuter
+    value: {fileID: 8336094481037939655}
+  - variableName: frameInner
+    value: {fileID: 6172764013470635604}
+  - variableName: frameOuterSelectMat
+    value: {fileID: 2100000, guid: a1fdf6db24b92544f832dd5e2f10aa02, type: 2}
+  - variableName: frameInnerSelectMat
+    value: {fileID: 2100000, guid: 761fce98d97f4d14493f104b4bf0ef43, type: 2}
+  - variableName: interactable
+    value: {fileID: 7951446822278137965}
 --- !u!1 &6558043651940786530
 GameObject:
   m_ObjectHideFlags: 0
@@ -1130,7 +1089,7 @@ GameObject:
   - component: {fileID: 1450212886096372766}
   - component: {fileID: 7092984534569438835}
   - component: {fileID: 714720351664693352}
-  - component: {fileID: 1945034296931014937}
+  - component: {fileID: 4263440316335688787}
   m_Layer: 0
   m_Name: Face
   m_TagString: Untagged
@@ -1229,7 +1188,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1945034296931014937
+--- !u!114 &4263440316335688787
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1238,19 +1197,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 6865504631242195284}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ed6f734533a92145839f2484b0e6c0c, type: 3}
+  m_Script: {fileID: 11500000, guid: 2079d26ed1b136d429eb101f9a2ef439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startAngle: 96
-  endAngle: 90
-  speed: 4
-  maxIntensityForSmiley: 2
-  smileyMaterial: {fileID: 2100000, guid: eb1ba0554298b6d429fadbced5864089, type: 2}
-  maxIntensityForSmileyFrame: 3.5
-  smileyFrameMaterial: {fileID: 2100000, guid: 318e0865ef652b44ea32840986385429, type: 2}
-  smallSmile: {fileID: 2800000, guid: be2eae2c2badfaa42ac8d78c8c887db6, type: 3}
-  bigSmile: {fileID: 2800000, guid: 32476a50b4ba77a43af112c9d13e43ce, type: 3}
-  duration: 30
+  mainLuaScript: {fileID: -8053997915111893050, guid: 238cfad77e867284dacb5255b808d368, type: 3}
+  additionalLuaScripts: []
+  references:
+  - variableName: smileyMaterial
+    value: {fileID: 2100000, guid: eb1ba0554298b6d429fadbced5864089, type: 2}
+  - variableName: smileyFrameMaterial
+    value: {fileID: 2100000, guid: 318e0865ef652b44ea32840986385429, type: 2}
+  - variableName: smallSmile
+    value: {fileID: 2800000, guid: be2eae2c2badfaa42ac8d78c8c887db6, type: 3}
+  - variableName: bigSmile
+    value: {fileID: 2800000, guid: 32476a50b4ba77a43af112c9d13e43ce, type: 3}
+  - variableName: smileyRenderer
+    value: {fileID: 7092984534569438835}
+  - variableName: smileyFrameRenderer
+    value: {fileID: 839296162464565288}
+  - variableName: interactable
+    value: {fileID: 7951446822278137965}
 --- !u!1 &7962040551874288739
 GameObject:
   m_ObjectHideFlags: 0

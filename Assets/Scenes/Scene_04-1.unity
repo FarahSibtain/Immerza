@@ -543,7 +543,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 468309388}
-  - component: {fileID: 468309389}
+  - component: {fileID: 468309390}
   m_Layer: 0
   m_Name: SendHearts
   m_TagString: Untagged
@@ -569,7 +569,7 @@ Transform:
   - {fileID: 2953724181082505999}
   m_Father: {fileID: 595991985}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &468309389
+--- !u!114 &468309390
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -578,7 +578,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 468309387}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 457c323ff50a38c43a00ba80330d2e04, type: 3}
+  m_Script: {fileID: 11500000, guid: 2079d26ed1b136d429eb101f9a2ef439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainLuaScript: {fileID: 1688821417415996379, guid: 26687a8e7363a7b429c035f88a7aa28c, type: 3}
+  additionalLuaScripts: []
+  references:
+  - variableName: ps1
+    value: {fileID: 6862741893317660855}
+  - variableName: ps2
+    value: {fileID: 8919296632575957023}
+  - variableName: ps3
+    value: {fileID: 9202698533187061772}
+--- !u!114 &523530313 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7951446822278137965, guid: 23e40324966f6804d8e1f7a2402eebb2, type: 3}
+  m_PrefabInstance: {fileID: 2170044866835303505}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &595991979 stripped
@@ -6806,6 +6826,10 @@ PrefabInstance:
       propertyPath: duration
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 4263440316335688787, guid: 23e40324966f6804d8e1f7a2402eebb2, type: 3}
+      propertyPath: references.Array.data[6].value
+      value: 
+      objectReference: {fileID: 523530313}
     - target: {fileID: 5976259544155798572, guid: 23e40324966f6804d8e1f7a2402eebb2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
